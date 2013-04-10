@@ -19,6 +19,8 @@ class Comment < ActiveRecord::Base
   has_many :comment_ancestries
   has_many :comments, through: :comment_ancestries
   has_one :parent, through: :comment_ancestries
+
+  # REV: remember to do validations, like: validates :body, presence: true
 end
 
 ##Comment

@@ -13,6 +13,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    # REV: you shouldn't ever set a value in the params hash
+    # to another value.  you're just trying to pull values out
+    # of the params hash.
     params[:post][:comments_attributes]['0'][:user_id] = current_user.id
     #fail
     @post = current_user.posts.build(params[:post])
