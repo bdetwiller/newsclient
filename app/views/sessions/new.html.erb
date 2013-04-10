@@ -1,0 +1,14 @@
+<h1> Please Sign In </h1>
+
+<%= form_tag session_url do %>
+<%= label_tag "user[username]", :username %>
+<%= text_field_tag "user[username]"%>
+
+<%= label_tag "user[password]", :password %>
+<%= password_field_tag "user[password]"%>
+
+<%= submit_tag "Log in"%>
+
+<% end %>
+
+<%= current_user.inspect %>

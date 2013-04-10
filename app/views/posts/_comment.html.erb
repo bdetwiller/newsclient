@@ -1,0 +1,6 @@
+<%= link_to comment.user.username, user_url(comment.user) %> |
+<%= link_to "link", post_comment_url(post, comment)%>
+<br>
+<%= comment.body %>
+<br>
+<%= link_to "reply", post_comment_url(post, comment)%>

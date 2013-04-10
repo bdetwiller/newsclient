@@ -1,0 +1,23 @@
+<%#= render partial: "/posts/post", locals: { post: @comment.post }  %>
+
+ <h2>
+ <%= link_to @post.title, "http://#{@post.link}" %>
+ </h2>
+Submitted by: <%= link_to "#{@post.user.username}", user_url(@post.user_id)%> |
+<%= link_to "#{@post.comments.count} comments", post_url(@post) %>
+
+<%= form_tag post_comments_url(@post) do %>
+<%= label_tag 'comment[body]' %>
+<%= text_area_tag 'comment[body]' %>
+<%= hidden_field_tag :parent_id, @comment.id  %>
+<br>
+
+<%= submit_tag "add comment"%>
+
+<% end %>
+
+<%= @comment.comments.inspect %>
+
+<% @comment.comments.each do |comment| %>
+  <%= render partial: "comment", locals: { comment: comment }  %>
+<% end %>

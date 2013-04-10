@@ -1,0 +1,6 @@
+ <h2>
+ <%= link_to post.title, "http://#{post.link}" %>
+ </h2>
+Submitted by: <%= link_to "#{post.user.username}", user_url(post.user_id)%> |
+<%= link_to "#{post.comments.count} comments", post_url(post) %>
+

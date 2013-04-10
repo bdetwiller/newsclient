@@ -1,0 +1,13 @@
+<%= render partial: "post", locals: { post: @post }  %>
+
+<%= form_tag post_comments_url(@post) do %>
+<%= label_tag 'comment[body]' %>
+<%= text_area_tag 'comment[body]' %>
+<br>
+<%= submit_tag "add comment"%>
+
+<% end %>
+
+<% @post.comments.each do |comment| %>
+  <%= render partial: "comment", locals: { comment: comment, post: @post }  %>
+  <% end %>
